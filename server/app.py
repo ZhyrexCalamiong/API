@@ -171,4 +171,4 @@ def get_random_song_url():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run
