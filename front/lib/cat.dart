@@ -8,7 +8,7 @@ class CatScreen extends StatefulWidget {
 }
 
 class _CatScreenState extends State<CatScreen> {
-  final String baseUrl = "https://api-qaecn9m76-zhyrexcalamiongs-projects.vercel.app";
+  final String baseUrl = "https://api-zhyrexcalamiongs-projects.vercel.app/";
   String? _catName = "Loading...";
   String? _catOrigin = "Loading...";
   String? _catImageUrl;

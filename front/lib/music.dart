@@ -9,7 +9,7 @@ class MusicScreen extends StatefulWidget {
 }
 
 class _MusicScreenState extends State<MusicScreen> {
-  final String baseUrl = "https://api-qaecn9m76-zhyrexcalamiongs-projects.vercel.app";
+  final String baseUrl = "https://api-zhyrexcalamiongs-projects.vercel.app/";
   String? _songTitle = "Loading...";
   String? _artistName = "Loading...";
   String? _songDuration = "Loading...";
