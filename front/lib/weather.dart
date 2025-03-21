@@ -8,7 +8,7 @@ class WeatherScreen extends StatefulWidget {
 }
 
 class _WeatherScreenState extends State<WeatherScreen> {
-  final String baseUrl = "http://127.0.0.1:5000";
+  final String baseUrl = "https://api-qaecn9m76-zhyrexcalamiongs-projects.vercel.app/";
   String? _weatherLocation = "Loading...";
   String? _temperature = "Loading...";
   String? _condition = "Loading...";

@@ -16,7 +16,9 @@ DEEZER_API_URL = "https://api.deezer.com/playlist/908622995/tracks"
 
 current_song = None
 
-
+@app.route('/')
+def home():
+    return "HEELO WORLD"
 
 ### WEATHER API ENDPOINTS ###
 def fetch_weather(location="Philippines"):
