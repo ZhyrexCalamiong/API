@@ -1,6 +1,5 @@
 import random
-from flask import Flask, request, jsonify
-import requests
+from flask import Flask, requests, jsonify
 
 app = Flask(__name__)
 
