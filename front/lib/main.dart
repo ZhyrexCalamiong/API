@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:front/cat.dart';
 import 'package:front/music.dart';
 import 'package:front/weather.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,10 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Weather, Cats & Music',
-      theme: ThemeData.dark().copyWith(
-        primaryColor: Colors.blueAccent,
-        scaffoldBackgroundColor: Colors.black,
-      ),
+      theme: ThemeData.dark(),
       home: NavBarLayout(),
     );
   }
@@ -28,9 +26,7 @@ class NavBarLayout extends StatefulWidget {
 }
 
 class _NavBarLayoutState extends State<NavBarLayout> {
-  int _currentIndex = 0; // Tracks the selected navbar item
-
-  // List of screens to display
+  int _currentIndex = 0;
   final List<Widget> _screens = [
     WeatherScreen(),
     CatScreen(),
@@ -40,31 +36,54 @@ class _NavBarLayoutState extends State<NavBarLayout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Weather, Cats & Music'),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.teal.shade900, Colors.tealAccent],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+        ),
+        child: _screens[_currentIndex],
       ),
-      body: _screens[_currentIndex], // Display the selected screen
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index; // Update the selected index
-          });
-        },
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.cloud),
-            label: 'Weather',
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Colors.blueAccent,
+              Colors.purpleAccent,
+              Colors.greenAccent
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.pets),
-            label: 'Cat',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.music_note),
-            label: 'Music',
-          ),
-        ],
+        ),
+        child: BottomNavigationBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.white70,
+          currentIndex: _currentIndex,
+          onTap: (index) {
+            setState(() {
+              _currentIndex = index;
+            });
+          },
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.cloud),
+              label: 'Weather',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.pets),
+              label: 'Cat',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.music_note),
+              label: 'Music',
+            ),
+          ],
+        ),
       ),
     );
   }
